@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ERP Polybe est la solution ERP Desktop d'e-talent. Découvrez les modules de gestion et les démonstrations vidéo de ce logiciel complet pour Windows.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="ERP Polybe — Solution ERP Desktop | e-talent">
+  <meta property="og:description" content="ERP Polybe : solution ERP Desktop Windows complète. Gestion commerciale, comptabilité, stocks, paie et RH. Démonstrations vidéo disponibles.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://etalent.tn/polybe.html">
+  <meta property="og:image" content="https://etalent.tn/assets/logos/logo-etalent.png">
+  <link rel="canonical" href="https://etalent.tn/polybe.html">
+  <link rel="icon" type="image/jpeg" href="assets/logos/logo-symbol.jpg">
+  <title>ERP Polybe — Solution ERP Desktop Windows | e-talent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Styles spécifiques Polybe */
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--navy);
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition-base);
+    }
+    .video-thumb:hover { transform: scale(1.02); box-shadow: var(--shadow-xl); }
+    .video-thumb iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      pointer-events: none;
+    }
+    .video-thumb:hover iframe { pointer-events: auto; }
+    .video-thumb__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(7,27,53,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-base);
+    }
+    .video-thumb:hover .video-thumb__overlay { background: rgba(7,27,53,.1); }
+    .video-play-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-spring);
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+    }
+    .video-thumb:hover .video-play-btn {
+      transform: scale(1.15);
+      background: var(--white);
+    }
+
+    .desktop-mockup {
+      background: var(--navy);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+    .desktop-mockup__titlebar {
+      background: linear-gradient(90deg, #1a3a6a 0%, #0d2550 100%);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .desktop-mockup__dot {
+      width: 11px; height: 11px; border-radius: 50%;
+    }
+    .desktop-mockup__title {
+      font-size: 11px;
+      color: rgba(255,255,255,.6);
+      margin-left: 8px;
+      font-weight: 500;
+    }
+    .desktop-mockup__menubar {
+      background: rgba(0,50,110,.4);
+      padding: 6px 16px;
+      display: flex;
+      gap: 20px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .desktop-mockup__menuitem {
+      font-size: 11px;
+      color: rgba(255,255,255,.65);
+    }
+    .desktop-mockup__toolbar {
+      background: rgba(255,255,255,.04);
+      padding: 8px 16px;
+      display: flex;
+      gap: 6px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .desktop-mockup__toolbtn {
+      height: 22px;
+      padding: 0 10px;
+      background: rgba(255,255,255,.08);
+      border-radius: 3px;
+      font-size: 10px;
+      color: rgba(255,255,255,.65);
+      display: flex;
+      align-items: center;
+    }
+    .desktop-mockup__toolbtn--primary {
+      background: rgba(0,80,176,.4);
+      color: rgba(255,255,255,.9);
+    }
+    .desktop-mockup__body {
+      display: flex;
+      min-height: 240px;
+    }
+    .desktop-mockup__sidebar {
+      width: 140px;
+      background: rgba(255,255,255,.03);
+      border-right: 1px solid rgba(255,255,255,.05);
+      padding: 10px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .desktop-mockup__sidebar-section {
+      font-size: 9px;
+      color: rgba(255,255,255,.3);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 6px 6px 4px;
+      font-weight: 700;
+    }
+    .desktop-mockup__sidebar-item {
+      height: 24px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      font-size: 10px;
+      color: rgba(255,255,255,.55);
+      gap: 6px;
+    }
+    .desktop-mockup__sidebar-item--active {
+      background: rgba(0,80,176,.35);
+      color: white;
+    }
+    .desktop-mockup__content {
+      flex: 1;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .desktop-mockup__table-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .desktop-mockup__table-row div {
+      height: 18px;
+      background: rgba(255,255,255,.06);
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header site-header--transparent" role="banner">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo" aria-label="e-talent — Accueil">
+          <img src="assets/logos/logo-etalent.png" alt="e-talent" width="140" height="44">
+        </a>
+        <nav class="site-nav" aria-label="Navigation principale">
+          <a href="index.html" class="nav-link">Accueil</a>
+          <a href="services.html" class="nav-link">Nos services</a>
+          <div class="nav-dropdown">
+            <a href="solutions.html" class="nav-link active" aria-haspopup="true">
+              Nos solutions
+              <svg style="display:inline;margin-left:2px;vertical-align:middle" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="nav-dropdown__menu">
+              <a href="erp-waves.html" class="nav-dropdown__item">
+                <span class="nav-dropdown__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span>
+                <span>ERP Waves</span>
+              </a>
+              <a href="smp.html" class="nav-dropdown__item">
+                <span class="nav-dropdown__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg></span>
+                <span>Supplier Management Platform</span>
+              </a>
+              <a href="polybe.html" class="nav-dropdown__item">
+                <span class="nav-dropdown__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></span>
+                <span>ERP Polybe</span>
+              </a>
+            </div>
+          </div>
+          <a href="about.html" class="nav-link">À propos</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="contact.html" class="btn btn--accent btn--sm">Parlons de votre projet</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <nav class="mobile-nav" aria-hidden="true" aria-label="Navigation mobile">
+    <div class="mobile-nav__links">
+      <a href="index.html" class="mobile-nav__link">Accueil</a>
+      <a href="services.html" class="mobile-nav__link">Nos services</a>
+      <a href="solutions.html" class="mobile-nav__link" data-toggle="mobile-solutions">
+        Nos solutions
+        <svg class="chevron" style="transition:transform .3s" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div id="mobile-solutions" class="mobile-nav__sub" style="display:none">
+        <a href="erp-waves.html" class="mobile-nav__sub-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg> ERP Waves</a>
+        <a href="smp.html" class="mobile-nav__sub-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg> Supplier Management Platform</a>
+        <a href="polybe.html" class="mobile-nav__sub-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> ERP Polybe</a>
+      </div>
+      <a href="about.html" class="mobile-nav__link">À propos</a>
+      <a href="contact.html" class="mobile-nav__link">Contact</a>
+    </div>
+    <div style="margin-top:auto;padding-top:2rem">
+      <a href="contact.html" class="btn btn--accent" style="width:100%;justify-content:center">Parlons de votre projet</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============================================================
+         PAGE HERO
+         ============================================================ -->
+    <section class="page-hero" aria-label="ERP Polybe">
+      <div class="page-hero__bg"></div>
+      <div class="page-hero__grid"></div>
+      <!-- Déco desktop floating -->
+      
+      <div class="container">
+        <div class="page-hero__content">
+          <nav class="page-hero__breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a>
+            <span aria-hidden="true">›</span>
+            <a href="solutions.html">Nos solutions</a>
+            <span aria-hidden="true">›</span>
+            <span>ERP Polybe</span>
+          </nav>
+          <div class="section-label" style="margin-bottom:1.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> Solution ERP Desktop Windows</div>
+          <h1 class="page-hero__title">
+            ERP Polybe — Votre gestion<br>
+            <span class="accent">complète en Desktop</span>
+          </h1>
+          <p class="page-hero__subtitle">
+            Notre ERP historique en version Desktop Windows. Robuste, complet et éprouvé, il couvre l'ensemble des domaines de gestion d'entreprise avec des performances optimales.
+          </p>
+          <div class="btn-group" style="margin-top:2.5rem;">
+            <a href="#demo-videos" class="btn btn--outline-white btn--lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M8 5v14l11-7z"/></svg>
+              Voir les démonstrations
+            </a>
+            <a href="#demo-form" class="btn btn--accent btn--lg">Demander une démo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 1 — Présentation générale
+         ============================================================ -->
+    <section class="section bg-white" aria-labelledby="polybe-intro-title">
+      <div class="container">
+        <div class="grid grid-2" style="gap:4rem;align-items:center;">
+
+          <!-- Texte gauche -->
+          <div class="reveal from-left">
+            <span class="section-label section-label--blue">Qu'est-ce que ERP Polybe ?</span>
+            <h2 id="polybe-intro-title" class="section-title" style="margin-top:1rem;">
+              Un ERP Desktop <span class="accent">complet et robuste</span>
+            </h2>
+            <div class="section-divider section-divider--left"></div>
+            <p style="margin-top:1.5rem;color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem;">
+              ERP Polybe est la solution ERP Desktop développée par e-talent. Conçue pour fonctionner en environnement Windows, elle est particulièrement adaptée aux entreprises qui souhaitent une application native, performante et disponible sans connexion internet permanente.
+            </p>
+            <p style="color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem;">
+              Polybe est notre solution historique, enrichie au fil des années à partir des retours de nos clients. Elle couvre l'ensemble des besoins de gestion d'une PME : du cycle commercial à la comptabilité, en passant par la gestion des stocks, la paie et les ressources humaines.
+            </p>
+            <p style="color:var(--text-secondary);line-height:1.75;margin-bottom:2rem;">
+              Contrairement à ERP Waves (accessible via navigateur), Polybe est une application installée directement sur les postes Windows, offrant des performances élevées et une parfaite intégration aux environnements réseau locaux.
+            </p>
+            <ul class="feature-list">
+              <li class="feature-item">
+                <div class="feature-item__check">✓</div>
+                <span>Application native Windows — performances optimales</span>
+              </li>
+              <li class="feature-item">
+                <div class="feature-item__check">✓</div>
+                <span>Fonctionnement hors-ligne (réseau local uniquement)</span>
+              </li>
+              <li class="feature-item">
+                <div class="feature-item__check">✓</div>
+                <span>Couverture fonctionnelle complète (commercial, compta, RH…)</span>
+              </li>
+              <li class="feature-item">
+                <div class="feature-item__check">✓</div>
+                <span>Adapté aux environnements multi-postes en réseau local</span>
+              </li>
+              <li class="feature-item">
+                <div class="feature-item__check">✓</div>
+                <span>Maintenu et supporté par e-talent</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Mockup desktop droite -->
+          <div class="reveal from-right">
+            <div class="desktop-mockup">
+              <div class="desktop-mockup__titlebar">
+                <div class="desktop-mockup__dot" style="background:#FF5F57;"></div>
+                <div class="desktop-mockup__dot" style="background:#FFBD2E;"></div>
+                <div class="desktop-mockup__dot" style="background:#28CA41;"></div>
+                <span class="desktop-mockup__title">ERP Polybe — Gestion Commerciale</span>
+              </div>
+              <div class="desktop-mockup__menubar">
+                <span class="desktop-mockup__menuitem">Fichier</span>
+                <span class="desktop-mockup__menuitem">Commercial</span>
+                <span class="desktop-mockup__menuitem">Achats</span>
+                <span class="desktop-mockup__menuitem">Stocks</span>
+                <span class="desktop-mockup__menuitem">Comptabilité</span>
+                <span class="desktop-mockup__menuitem">Paie</span>
+                <span class="desktop-mockup__menuitem">États</span>
+              </div>
+              <div class="desktop-mockup__toolbar">
+                <div class="desktop-mockup__toolbtn desktop-mockup__toolbtn--primary">+ Nouveau</div>
+                <div class="desktop-mockup__toolbtn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/></svg> Enregistrer</div>
+                <div class="desktop-mockup__toolbtn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg> Imprimer</div>
+                <div class="desktop-mockup__toolbtn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg> Rechercher</div>
+              </div>
+              <div class="desktop-mockup__body">
+                <div class="desktop-mockup__sidebar">
+                  <div class="desktop-mockup__sidebar-section">Menu</div>
+                  <div class="desktop-mockup__sidebar-item desktop-mockup__sidebar-item--active"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><rect width="14" height="18" x="5" y="4" rx="2"/></svg> Devis</div>
+                  <div class="desktop-mockup__sidebar-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg> Commandes</div>
+                  <div class="desktop-mockup__sidebar-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg> Livraisons</div>
+                  <div class="desktop-mockup__sidebar-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg> Factures</div>
+                  <div class="desktop-mockup__sidebar-section">Achats</div>
+                  <div class="desktop-mockup__sidebar-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg> Cmd. four.</div>
+                  <div class="desktop-mockup__sidebar-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg> Réceptions</div>
+                  <div class="desktop-mockup__sidebar-section">Stocks</div>
+                  <div class="desktop-mockup__sidebar-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg> Inventaire</div>
+                </div>
+                <div class="desktop-mockup__content">
+                  <!-- Table header -->
+                  <div class="desktop-mockup__table-row">
+                    <div style="flex:0.5;background:rgba(0,80,176,.3);height:22px !important;"></div>
+                    <div style="flex:2;background:rgba(0,80,176,.3);height:22px !important;"></div>
+                    <div style="flex:1.5;background:rgba(0,80,176,.3);height:22px !important;"></div>
+                    <div style="flex:1;background:rgba(0,80,176,.3);height:22px !important;"></div>
+                    <div style="flex:1;background:rgba(0,80,176,.3);height:22px !important;"></div>
+                  </div>
+                  <!-- Rows -->
+                  <div class="desktop-mockup__table-row">
+                    <div style="flex:0.5;"></div>
+                    <div style="flex:2;"></div>
+                    <div style="flex:1.5;"></div>
+                    <div style="flex:1;"></div>
+                    <div style="flex:1;background:rgba(240,144,0,.2) !important;"></div>
+                  </div>
+                  <div class="desktop-mockup__table-row">
+                    <div style="flex:0.5;background:rgba(255,255,255,.04) !important;"></div>
+                    <div style="flex:2;background:rgba(255,255,255,.04) !important;"></div>
+                    <div style="flex:1.5;background:rgba(255,255,255,.04) !important;"></div>
+                    <div style="flex:1;background:rgba(255,255,255,.04) !important;"></div>
+                    <div style="flex:1;background:rgba(255,255,255,.04) !important;"></div>
+                  </div>
+                  <div class="desktop-mockup__table-row">
+                    <div style="flex:0.5;"></div>
+                    <div style="flex:2;"></div>
+                    <div style="flex:1.5;"></div>
+                    <div style="flex:1;"></div>
+                    <div style="flex:1;background:rgba(0,185,129,.15) !important;"></div>
+                  </div>
+                  <div class="desktop-mockup__table-row">
+                    <div style="flex:0.5;background:rgba(255,255,255,.04) !important;"></div>
+                    <div style="flex:2;background:rgba(255,255,255,.04) !important;"></div>
+                    <div style="flex:1.5;background:rgba(255,255,255,.04) !important;"></div>
+                    <div style="flex:1;background:rgba(255,255,255,.04) !important;"></div>
+                    <div style="flex:1;background:rgba(255,255,255,.04) !important;"></div>
+                  </div>
+                  <!-- Pied de formulaire -->
+                  <div style="margin-top:auto;display:flex;gap:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.06);">
+                    <div style="flex:1;height:26px;background:rgba(0,80,176,.35);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:white;">Valider</div>
+                    <div style="flex:1;height:26px;background:rgba(255,255,255,.08);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:rgba(255,255,255,.6);">Annuler</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p style="text-align:center;margin-top:.75rem;font-size:var(--text-xs);color:var(--text-muted);">Illustration conceptuelle de l'interface ERP Polybe</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2 — Modules fonctionnels
+         ============================================================ -->
+    <section class="section bg-light" aria-labelledby="modules-title">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="section-label">Couverture fonctionnelle</span>
+          <h2 id="modules-title" class="section-title" style="margin-top:1rem;">
+            Les modules de <span class="accent">ERP Polybe</span>
+          </h2>
+          <p class="section-subtitle">
+            Une couverture complète des processus de gestion d'entreprise dans une seule application Desktop.
+          </p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="module-grid reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem;">
+
+          <div class="module-card">
+            <div class="module-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div>
+            <h3 class="module-card__title">Gestion commerciale</h3>
+            <ul class="module-card__items">
+              <li class="module-card__item">Devis & offres de prix</li>
+              <li class="module-card__item">Bons de commande clients</li>
+              <li class="module-card__item">Bons de livraison</li>
+              <li class="module-card__item">Facturation clients</li>
+              <li class="module-card__item">Avoirs & retours</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg></div>
+            <h3 class="module-card__title">Achats & approvisionnement</h3>
+            <ul class="module-card__items">
+              <li class="module-card__item">Commandes fournisseurs</li>
+              <li class="module-card__item">Réception des marchandises</li>
+              <li class="module-card__item">Factures fournisseurs</li>
+              <li class="module-card__item">Avoirs fournisseurs</li>
+              <li class="module-card__item">Suivi des délais</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
+            <h3 class="module-card__title">Articles & stocks</h3>
+            <ul class="module-card__items">
+              <li class="module-card__item">Catalogue articles</li>
+              <li class="module-card__item">Gestion multi-dépôts</li>
+              <li class="module-card__item">Mouvements de stock</li>
+              <li class="module-card__item">Inventaires</li>
+              <li class="module-card__item">Alertes de stock</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3 class="module-card__title">Clients & fournisseurs</h3>
+            <ul class="module-card__items">
+              <li class="module-card__item">Fiches tiers complètes</li>
+              <li class="module-card__item">Historique transactions</li>
+              <li class="module-card__item">Encours & crédit</li>
+              <li class="module-card__item">Relevés de compte</li>
+              <li class="module-card__item">Statistiques par tiers</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/><path d="M6 14h6"/></svg></div>
+            <h3 class="module-card__title">Comptabilité générale</h3>
+            <ul class="module-card__items">
+              <li class="module-card__item">Plan comptable</li>
+              <li class="module-card__item">Journaux comptables</li>
+              <li class="module-card__item">Lettrage & rapprochement</li>
+              <li class="module-card__item">Bilan & résultat</li>
+              <li class="module-card__item">Déclarations fiscales</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div>
+            <h3 class="module-card__title">Finances & trésorerie</h3>
+            <ul class="module-card__items">
+              <li class="module-card__item">Gestion de caisse</li>
+              <li class="module-card__item">Banques & rapprochement</li>
+              <li class="module-card__item">Suivi des règlements</li>
+              <li class="module-card__item">Effets de commerce</li>
+              <li class="module-card__item">Prévisions trésorerie</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></div>
+            <h3 class="module-card__title">Paie & ressources humaines</h3>
+            <ul class="module-card__items">
+              <li class="module-card__item">Dossiers employés</li>
+              <li class="module-card__item">Calcul de la paie</li>
+              <li class="module-card__item">Bulletins de salaire</li>
+              <li class="module-card__item">Déclarations sociales</li>
+              <li class="module-card__item">Congés & absences</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg></div>
+            <h3 class="module-card__title">États & éditions</h3>
+            <ul class="module-card__items">
+              <li class="module-card__item">États de synthèse</li>
+              <li class="module-card__item">Rapports paramétrables</li>
+              <li class="module-card__item">Impressions professionnelles</li>
+              <li class="module-card__item">Export PDF / Excel</li>
+              <li class="module-card__item">Journaux comptables</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3 — Polybe vs Waves
+         ============================================================ -->
+    <section class="section bg-white" aria-labelledby="compare-title">
+      <div class="container">
+        <div class="text-center reveal" style="margin-bottom:3rem;">
+          <span class="section-label section-label--blue">Comparaison</span>
+          <h2 id="compare-title" class="section-title" style="margin-top:1rem;">Polybe ou ERP Waves ?</h2>
+          <p class="section-subtitle">
+            Les deux solutions couvrent les mêmes domaines fonctionnels. La différence réside dans leur mode de déploiement.
+          </p>
+        </div>
+
+        <div class="grid grid-2 reveal" style="gap:2rem;max-width:900px;margin:0 auto;">
+
+          <div class="card" style="border-top:4px solid var(--navy);background:linear-gradient(145deg,rgba(7,27,53,.03) 0%,white 100%);">
+            <div style="margin-bottom:1rem;color:var(--primary);"><svg class="icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
+            <h3 class="card__title">ERP Polybe — Desktop</h3>
+            <ul class="feature-list" style="margin-top:1rem;">
+              <li class="feature-item"><div class="feature-item__check">✓</div><span>Application Windows installée en local</span></li>
+              <li class="feature-item"><div class="feature-item__check">✓</div><span>Fonctionne sans connexion internet permanente</span></li>
+              <li class="feature-item"><div class="feature-item__check">✓</div><span>Performances élevées sur réseau local</span></li>
+              <li class="feature-item"><div class="feature-item__check">✓</div><span>Idéal pour les environnements multi-postes LAN</span></li>
+              <li class="feature-item"><div class="feature-item__check">✓</div><span>Intégration matérielle possible (imprimantes, scanners…)</span></li>
+            </ul>
+          </div>
+
+          <div class="card card--featured">
+            <div style="margin-bottom:1rem;color:var(--accent);"><svg class="icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></div>
+            <h3 class="card__title">ERP Waves — Web</h3>
+            <ul class="feature-list" style="margin-top:1rem;">
+              <li class="feature-item"><div class="feature-item__check" style="background:rgba(0,80,176,.1);color:var(--primary);">✓</div><span>Accessible depuis tout navigateur web</span></li>
+              <li class="feature-item"><div class="feature-item__check" style="background:rgba(0,80,176,.1);color:var(--primary);">✓</div><span>Aucune installation sur les postes clients</span></li>
+              <li class="feature-item"><div class="feature-item__check" style="background:rgba(0,80,176,.1);color:var(--primary);">✓</div><span>Mises à jour centralisées et automatiques</span></li>
+              <li class="feature-item"><div class="feature-item__check" style="background:rgba(0,80,176,.1);color:var(--primary);">✓</div><span>Accès distant et mobilité complète</span></li>
+              <li class="feature-item"><div class="feature-item__check" style="background:rgba(0,80,176,.1);color:var(--primary);">✓</div><span>Multi-sites nativement supporté</span></li>
+            </ul>
+            <div style="margin-top:1.5rem;">
+              <a href="erp-waves.html" class="btn btn--primary btn--sm">Découvrir ERP Waves</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:var(--text-sm);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:-2px;margin-right:6px;"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Notre équipe peut vous aider à choisir la solution la mieux adaptée à votre environnement.
+          <a href="contact.html" style="color:var(--primary);font-weight:600;margin-left:4px;">Contactez-nous →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4 — Vidéos de démonstration
+         ============================================================ -->
+    <section class="section bg-dark" id="demo-videos" aria-labelledby="videos-title">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="section-label" style="color:var(--accent);background:rgba(240,144,0,.12);border-color:rgba(240,144,0,.2);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> Démonstrations vidéo
+          </span>
+          <h2 id="videos-title" class="section-title section-title--white" style="margin-top:1rem;">
+            Découvrez ERP Polybe en action
+          </h2>
+          <p class="section-subtitle section-subtitle--white">
+            Des vidéos de présentation des fonctionnalités principales de notre ERP Desktop.
+            Visionnez les démonstrations ci-dessous ou accédez à la playlist complète sur YouTube.
+          </p>
+          <div style="margin-top:1.5rem;">
+            <a href="https://www.youtube.com/playlist?list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn--outline-white">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#FF0000;margin-right:6px"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+              Voir la playlist complète YouTube
+            </a>
+          </div>
+        </div>
+
+        <!-- Grille de vidéos YouTube embarquées -->
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem;" class="reveal">
+
+          <!-- Vidéo 1 — Présentation générale -->
+          <div class="video-thumb" data-src="https://www.youtube.com/embed?listType=playlist&list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG&index=0">
+            <iframe
+              src="https://www.youtube.com/embed?listType=playlist&list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG&index=0&rel=0"
+              title="ERP Polybe — Présentation générale"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+            <div class="video-thumb__overlay" aria-hidden="true"></div>
+          </div>
+
+          <!-- Vidéo 2 -->
+          <div class="video-thumb" data-src="https://www.youtube.com/embed?listType=playlist&list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG&index=1">
+            <iframe
+              src="https://www.youtube.com/embed?listType=playlist&list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG&index=1&rel=0"
+              title="ERP Polybe — Gestion commerciale"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+            <div class="video-thumb__overlay" aria-hidden="true"></div>
+          </div>
+
+          <!-- Vidéo 3 -->
+          <div class="video-thumb" data-src="https://www.youtube.com/embed?listType=playlist&list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG&index=2">
+            <iframe
+              src="https://www.youtube.com/embed?listType=playlist&list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG&index=2&rel=0"
+              title="ERP Polybe — Comptabilité"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+            <div class="video-thumb__overlay" aria-hidden="true"></div>
+          </div>
+
+          <!-- Vidéo 4 -->
+          <div class="video-thumb" data-src="https://www.youtube.com/embed?listType=playlist&list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG&index=3">
+            <iframe
+              src="https://www.youtube.com/embed?listType=playlist&list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG&index=3&rel=0"
+              title="ERP Polybe — Paie et RH"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+            <div class="video-thumb__overlay" aria-hidden="true"></div>
+          </div>
+
+        </div>
+
+        <!-- CTA playlist complète -->
+        <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+          <p style="color:rgba(255,255,255,.55);font-size:var(--text-sm);margin-bottom:1rem;">
+            D'autres démonstrations sont disponibles dans notre playlist YouTube complète.
+          </p>
+          <a href="https://www.youtube.com/playlist?list=PLIFN4D5ksSV1VY7_vslSGH1GiYERJ86QG"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn--accent">
+            Accéder à toutes les vidéos →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5 — Avantages Desktop
+         ============================================================ -->
+    <section class="section bg-light" aria-labelledby="avantages-title">
+      <div class="container">
+        <div class="text-center reveal" style="margin-bottom:3rem;">
+          <span class="section-label section-label--blue">Avantages</span>
+          <h2 id="avantages-title" class="section-title" style="margin-top:1rem;">
+            Pourquoi choisir ERP Polybe ?
+          </h2>
+        </div>
+
+        <div class="grid grid-3 reveal">
+
+          <div class="card glow-card card-tilt">
+            <div class="card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <h3 class="card__title">Performances élevées</h3>
+            <p class="card__body">Application native Windows sans dépendance à une connexion internet. Temps de réponse optimaux pour les traitements intensifs.</p>
+          </div>
+
+          <div class="card glow-card card-tilt reveal-delay-1">
+            <div class="card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <h3 class="card__title">Données en interne</h3>
+            <p class="card__body">Vos données restent sur votre serveur ou vos postes. Contrôle total de l'hébergement et de la sécurité des informations.</p>
+          </div>
+
+          <div class="card glow-card card-tilt reveal-delay-2">
+            <div class="card__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+            <h3 class="card__title">Disponible hors-ligne</h3>
+            <p class="card__body">Fonctionne en réseau local sans connexion internet permanente — idéal pour les entreprises avec une connectivité limitée.</p>
+          </div>
+
+          <div class="card glow-card card-tilt reveal-delay-3">
+            <div class="card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg></div>
+            <h3 class="card__title">Intégration matérielle</h3>
+            <p class="card__body">Compatible avec les imprimantes, scanners, lecteurs de codes-barres et autres périphériques Windows professionnels.</p>
+          </div>
+
+          <div class="card glow-card card-tilt reveal-delay-4">
+            <div class="card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="1"/><rect width="8" height="8" x="13" y="3" rx="1"/><rect width="8" height="8" x="3" y="13" rx="1"/><rect width="8" height="8" x="13" y="13" rx="1"/></svg></div>
+            <h3 class="card__title">Solution éprouvée</h3>
+            <p class="card__body">Solution mûrie par des années d'utilisation terrain. Interface familière, stable et pensée pour les utilisateurs professionnels.</p>
+          </div>
+
+          <div class="card glow-card card-tilt reveal-delay-5">
+            <div class="card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" x2="9.17" y1="4.93" y2="9.17"/><line x1="14.83" x2="19.07" y1="14.83" y2="19.07"/><line x1="14.83" x2="19.07" y1="9.17" y2="4.93"/><line x1="4.93" x2="9.17" y1="19.07" y2="14.83"/></svg></div>
+            <h3 class="card__title">Support e-talent</h3>
+            <p class="card__body">Maintenu et supporté directement par nos équipes. Mises à jour fonctionnelles et assistance technique de l'éditeur.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6 — Formulaire de démonstration
+         ============================================================ -->
+    <section class="section bg-dark" id="demo-form" aria-labelledby="demo-title">
+      <div class="container">
+        <div style="max-width:640px;margin:0 auto;">
+          <div class="text-center reveal" style="margin-bottom:2.5rem;">
+            <span class="section-label" style="color:var(--accent);background:rgba(240,144,0,.12);border-color:rgba(240,144,0,.2);">
+              Démonstration personnalisée
+            </span>
+            <h2 id="demo-title" class="section-title section-title--white" style="margin-top:1rem;">
+              Découvrez ERP Polybe avec notre équipe
+            </h2>
+            <p class="section-subtitle section-subtitle--white">
+              Remplissez ce formulaire et nous planifierons une présentation adaptée à votre activité.
+            </p>
+          </div>
+
+          <form id="demo-form-el" data-product="ERP Polybe" novalidate
+                style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-2xl);padding:2.5rem;"
+                class="reveal">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="demo-prenom" style="color:rgba(255,255,255,.85);">Prénom *</label>
+                <input class="form-control" id="demo-prenom" name="prenom" type="text" placeholder="Votre prénom" required autocomplete="given-name">
+                <span class="form-error" data-error="prenom" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="demo-nom" style="color:rgba(255,255,255,.85);">Nom *</label>
+                <input class="form-control" id="demo-nom" name="nom" type="text" placeholder="Votre nom" required autocomplete="family-name">
+                <span class="form-error" data-error="nom" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="demo-email" style="color:rgba(255,255,255,.85);">Email *</label>
+                <input class="form-control" id="demo-email" name="email" type="email" placeholder="votre@email.com" required autocomplete="email">
+                <span class="form-error" data-error="email" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="demo-tel" style="color:rgba(255,255,255,.85);">Téléphone</label>
+                <input class="form-control" id="demo-tel" name="telephone" type="tel" placeholder="+216 XX XXX XXX" autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="demo-entreprise" style="color:rgba(255,255,255,.85);">Entreprise</label>
+              <input class="form-control" id="demo-entreprise" name="entreprise" type="text" placeholder="Nom de votre société" autocomplete="organization">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="demo-message" style="color:rgba(255,255,255,.85);">Votre activité et vos besoins</label>
+              <textarea class="form-control" id="demo-message" name="message" rows="4"
+                        placeholder="Décrivez brièvement votre secteur d'activité et les modules qui vous intéressent…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--accent btn--lg" style="width:100%;justify-content:center;margin-top:.5rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.47 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Demander une démonstration
+            </button>
+
+            <p style="text-align:center;margin-top:1rem;font-size:var(--text-xs);color:rgba(255,255,255,.35);">
+              Réponse garantie sous 24h ouvrables · Aucun engagement
+            </p>
+          </form>
+
+          <div style="text-align:center;margin-top:2rem;" class="reveal">
+            <p style="color:rgba(255,255,255,.45);font-size:var(--text-sm);margin-bottom:1rem;">Ou contactez-nous directement :</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+              <a href="mailto:contact@etalent.tn" class="badge badge--blue" style="font-size:var(--text-sm);padding:.6rem 1.2rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> contact@etalent.tn
+              </a>
+              <a href="https://wa.me/21654728192" target="_blank" rel="noopener" class="badge badge--green" style="font-size:var(--text-sm);padding:.6rem 1.2rem;">
+                <svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:-2px;margin-right:4px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp +216 54 728 192
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand__logo">
+            <img src="assets/logos/logo-etalent.png" alt="e-talent" width="130" height="40">
+          </div>
+          <p class="footer-brand__desc">
+            Société tunisienne de services informatiques et éditeur de logiciels, basée à Sousse.
+            Nous accompagnons les entreprises dans leur transformation digitale.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col__title">Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Accueil</a></li>
+            <li><a href="services.html" class="footer-link">Nos services</a></li>
+            <li><a href="solutions.html" class="footer-link">Nos solutions</a></li>
+            <li><a href="about.html" class="footer-link">À propos</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col__title">Nos solutions</h3>
+          <ul class="footer-links">
+            <li><a href="erp-waves.html" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg> ERP Waves</a></li>
+            <li><a href="smp.html" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg> Supplier Management Platform</a></li>
+            <li><a href="polybe.html" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> ERP Polybe Desktop</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col__title">Contact</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+            <div><a href="mailto:contact@etalent.tn">contact@etalent.tn</a></div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
+            <div><a href="tel:+21654728192">+216 54 728 192</a></div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>Rue de la Victoire, Chatt Mariem,<br>Sousse, Tunisie</div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+            <div><a href="https://etalent.tn" target="_blank" rel="noopener">etalent.tn</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 e-talent. Tous droits réservés.</p>
+        <nav class="footer-legal" aria-label="Liens légaux">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/21654728192" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contacter par WhatsApp">
+    <div class="whatsapp-btn__pulse"></div>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <div class="nav-progress" role="progressbar" aria-hidden="true"></div>
+
+  <script>
+    // Activation du formulaire de démo Polybe
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('demo-form-el');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var prenom = form.querySelector('[name="prenom"]').value.trim();
+        var nom = form.querySelector('[name="nom"]').value.trim();
+        var email = form.querySelector('[name="email"]').value.trim();
+        var entreprise = (form.querySelector('[name="entreprise"]') || {}).value || '';
+        var tel = (form.querySelector('[name="telephone"]') || {}).value || '';
+        var message = form.querySelector('[name="message"]').value.trim();
+
+        if (!prenom || !nom || !email) {
+          alert('Veuillez renseigner vos prénom, nom et email.');
+          return;
+        }
+        var subject = encodeURIComponent('[etalent.tn] Demande de démonstration — ERP Polybe — ' + prenom + ' ' + nom);
+        var body = encodeURIComponent(
+          'Demande de démonstration pour : ERP Polybe\n\n' +
+          'Prénom : ' + prenom + '\nNom : ' + nom + '\nEmail : ' + email + '\n' +
+          (tel ? 'Téléphone : ' + tel + '\n' : '') +
+          (entreprise ? 'Entreprise : ' + entreprise + '\n' : '') +
+          (message ? '\nBesoins : ' + message : '')
+        );
+        window.location.href = 'mailto:contact@etalent.tn?subject=' + subject + '&body=' + body;
+      });
+    });
+  </script>
+
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

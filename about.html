@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — e-talent | SSII &amp; Éditeur de logiciels à Sousse, Tunisie</title>
+  <meta name="description" content="Découvrez e-talent, société tunisienne de services informatiques et éditeur de logiciels basée à Sousse. Notre vision, nos valeurs et notre approche.">
+  <link rel="canonical" href="https://etalent.tn/about.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="À propos — e-talent | SSII &amp; Éditeur de logiciels à Sousse, Tunisie">
+  <meta property="og:description" content="Découvrez e-talent, société tunisienne de services informatiques et éditeur de logiciels basée à Sousse. Notre vision, nos valeurs et notre approche.">
+  <meta property="og:url" content="https://etalent.tn/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://etalent.tn/assets/logos/logo-etalent.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logos/logo-symbol.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* ── Identity visual card ──────────────────────────────────── */
+    .identity-card {
+      background: var(--navy, #071B35);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .identity-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(0,80,176,.3) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 20%, rgba(240,144,0,.2) 0%, transparent 50%);
+    }
+    .identity-card__emoji {
+      font-size: 5rem;
+      display: block;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .identity-badges {
+      display: flex;
+      justify-content: center;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .badge--blue {
+      background: var(--primary, #0050B0);
+      color: #fff;
+      padding: .4rem 1.2rem;
+      border-radius: 999px;
+      font-size: .875rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+    .badge--orange {
+      background: var(--accent, #F09000);
+      color: #fff;
+      padding: .4rem 1.2rem;
+      border-radius: 999px;
+      font-size: .875rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+    .identity-card__location {
+      position: relative;
+      z-index: 1;
+      font-size: .9375rem;
+      opacity: .8;
+      margin-bottom: .4rem;
+    }
+    .identity-card__city {
+      position: relative;
+      z-index: 1;
+      font-size: .875rem;
+      opacity: .55;
+    }
+
+    /* ── Vision/Mission cards ──────────────────────────────────── */
+    .vm-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      padding: 2.5rem;
+      border-left: 4px solid transparent;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .vm-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    }
+    .vm-card--blue { border-left-color: var(--primary, #0050B0); }
+    .vm-card--orange { border-left-color: var(--accent, #F09000); }
+    .vm-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .vm-card__label {
+      font-family: 'Poppins', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--primary, #0050B0);
+      margin-bottom: .5rem;
+    }
+    .vm-card--orange .vm-card__label { color: var(--accent, #F09000); }
+    .vm-card__title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy, #071B35);
+      margin-bottom: .75rem;
+    }
+    .vm-card p {
+      font-size: .9375rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.75;
+    }
+
+    /* ── Value cards ───────────────────────────────────────────── */
+    .value-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      padding: 2rem 1.75rem;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,.07);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 36px rgba(0,80,176,.12);
+    }
+    .value-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .value-card__title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy, #071B35);
+      margin-bottom: .75rem;
+    }
+    .value-card p {
+      font-size: .9rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.65;
+    }
+
+    /* ── Dual positioning section ──────────────────────────────── */
+    .dual-section {
+      background: var(--navy, #071B35);
+      position: relative;
+      overflow: hidden;
+    }
+    .dual-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(0,80,176,.2) 0%, transparent 55%),
+        radial-gradient(circle at 85% 20%, rgba(240,144,0,.12) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .dual-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 1.25rem;
+      padding: 2.5rem;
+      color: #fff;
+      transition: background .3s, border-color .3s;
+    }
+    .dual-card:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.2);
+    }
+    .dual-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .dual-card__title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: .75rem;
+    }
+    .dual-card p {
+      font-size: .9375rem;
+      opacity: .8;
+      line-height: 1.75;
+    }
+    .synergy-line {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .synergy-line::before,
+    .synergy-line::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+    }
+    .synergy-line span {
+      color: rgba(255,255,255,.7);
+      font-size: .9375rem;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    /* ── Commitment cards ──────────────────────────────────────── */
+    .commitment-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      padding: 2rem 1.75rem;
+      border-top: 4px solid transparent;
+      border-image: linear-gradient(90deg, var(--primary,#0050B0), var(--accent,#F09000)) 1;
+      border-image-slice: 1;
+      border-top-left-radius: 1.25rem;
+      border-top-right-radius: 1.25rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+      transition: transform .3s, box-shadow .3s;
+      /* Note: border-image doesn't work well with border-radius in all browsers — using pseudo workaround */
+      border-image: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .commitment-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary,#0050B0), var(--accent,#F09000));
+    }
+    .commitment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    }
+    .commitment-card__icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .commitment-card__title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy, #071B35);
+      margin-bottom: .6rem;
+    }
+    .commitment-card p {
+      font-size: .9rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.65;
+    }
+
+    /* ── CTA section ───────────────────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary, #0050B0) 0%, #003a80 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(240,144,0,.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .cta-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-section h2 {
+      color: #fff;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,.8);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .vm-card { margin-bottom: 1.5rem; }
+      .synergy-line { flex-direction: column; text-align: center; }
+      .synergy-line::before, .synergy-line::after { width: 60px; height: 1px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════ -->
+<header class="site-header site-header--transparent" role="banner">
+  <div class="container">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-logo" aria-label="e-talent — Accueil">
+        <img src="assets/logos/logo-etalent.png" alt="e-talent" width="140" height="44">
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="services.html" class="nav-link">Nos services</a>
+        <div class="nav-dropdown">
+          <a href="solutions.html" class="nav-link" aria-haspopup="true">
+            Nos solutions <svg style="display:inline;margin-left:2px;vertical-align:middle" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown__menu">
+            <a href="erp-waves.html" class="nav-dropdown__item">
+              <span class="nav-dropdown__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span>
+              <span>ERP Waves</span>
+            </a>
+            <a href="smp.html" class="nav-dropdown__item">
+              <span class="nav-dropdown__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg></span>
+              <span>Supplier Management Platform</span>
+            </a>
+            <a href="polybe.html" class="nav-dropdown__item">
+              <span class="nav-dropdown__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></span>
+              <span>ERP Polybe</span>
+            </a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link active" aria-current="page">À propos</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn--accent btn--sm">Parlons de votre projet</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" aria-hidden="true" aria-label="Navigation mobile">
+  <div class="mobile-nav__links">
+    <a href="index.html" class="mobile-nav__link">Accueil</a>
+    <a href="services.html" class="mobile-nav__link">Nos services</a>
+    <a href="solutions.html" class="mobile-nav__link" data-toggle="mobile-solutions">
+      Nos solutions
+      <svg class="chevron" style="transition:transform .3s" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+    <div id="mobile-solutions" class="mobile-nav__sub" style="display:none">
+      <a href="erp-waves.html" class="mobile-nav__sub-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg> ERP Waves</a>
+      <a href="smp.html" class="mobile-nav__sub-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg> Supplier Management Platform</a>
+      <a href="polybe.html" class="mobile-nav__sub-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> ERP Polybe</a>
+    </div>
+    <a href="about.html" class="mobile-nav__link active">À propos</a>
+    <a href="contact.html" class="mobile-nav__link">Contact</a>
+  </div>
+  <div style="margin-top:auto;padding-top:2rem">
+    <a href="contact.html" class="btn btn--accent" style="width:100%;justify-content:center">Parlons de votre projet</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- ── PAGE HERO ───────────────────────────────────────────────── -->
+  <section class="page-hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="page-hero__content">
+        <nav class="page-hero__breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          <span aria-current="page">À propos</span>
+        </nav>
+        <p class="section-label section-label--blue reveal">Notre histoire &amp; vision</p>
+        <h1 class="page-hero__title reveal reveal-delay-1" id="hero-title">
+          e-talent, votre partenaire <span class="accent">technologique</span> de confiance
+        </h1>
+        <p class="page-hero__subtitle reveal reveal-delay-2">
+          Une société tunisienne à double expertise : services informatiques et édition de logiciels. Nous croyons que la technologie doit être un levier de croissance accessible à toutes les entreprises.
+        </p>
+        <div class="btn-group reveal reveal-delay-3">
+          <a href="contact.html" class="btn btn--accent btn--lg">Travaillons ensemble</a>
+          <a href="services.html" class="btn btn--outline-white btn--lg">Nos services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 1 : Qui sommes-nous ? ──────────────────────────── -->
+  <section class="section bg-white" aria-labelledby="identity-title">
+    <div class="container">
+      <div class="grid grid-2" style="gap:3.5rem;align-items:center">
+
+        <!-- Left text -->
+        <div class="reveal from-left">
+          <p class="section-label">Notre identité</p>
+          <h2 class="section-title" id="identity-title">e-talent : double expertise, vision long terme</h2>
+          <p style="font-size:1rem;line-height:1.8;color:var(--text-muted,#6b7280);margin-bottom:1.25rem">
+            e-talent est une société tunisienne de services informatiques (SSII) et éditeur de logiciels, basée à Sousse en Tunisie. Notre ancrage local et notre regard international font de nous un acteur singulier dans l'écosystème tech tunisien.
+          </p>
+          <p style="font-size:1rem;line-height:1.8;color:var(--text-muted,#6b7280);margin-bottom:1.25rem">
+            Nous intervenons sur deux axes complémentaires : la réalisation de projets informatiques sur mesure pour des clients nationaux et internationaux, et la conception de nos propres solutions logicielles de gestion — ERP Waves, SMP et ERP Polybe.
+          </p>
+          <p style="font-size:1rem;line-height:1.8;color:var(--text-muted,#6b7280);margin-bottom:1.25rem">
+            Notre positionnement unique nous permet d'allier la réactivité et la flexibilité d'une équipe de développement avec la profondeur fonctionnelle d'un éditeur qui connaît parfaitement les enjeux de la gestion d'entreprise.
+          </p>
+          <p style="font-size:1rem;line-height:1.8;color:var(--text-muted,#6b7280);margin-bottom:0">
+            Nous travaillons avec des dirigeants, des responsables informatiques et des équipes métier pour transformer des besoins complexes en solutions logicielles fiables, évolutives et durables.
+          </p>
+        </div>
+
+        <!-- Right visual -->
+        <div class="reveal from-right" style="display:flex;justify-content:center">
+          <div class="identity-card" style="max-width:380px;width:100%">
+            <span class="identity-card__emoji" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/></svg></span>
+            <div class="identity-badges">
+              <span class="badge--blue">SSII</span>
+              <span class="badge--orange">Éditeur</span>
+            </div>
+            <p class="identity-card__location">Basés à Sousse, Tunisie <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></p>
+            <p class="identity-card__city">Chatt Mariem, Sousse</p>
+            <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1">
+              <div style="display:flex;justify-content:center;gap:2.5rem">
+                <div style="text-align:center">
+                  <div style="font-family:'Poppins',sans-serif;font-size:1.75rem;font-weight:800;color:var(--accent,#F09000)">3</div>
+                  <div style="font-size:.78rem;opacity:.65;margin-top:.2rem">Solutions éditées</div>
+                </div>
+                <div style="width:1px;background:rgba(255,255,255,.1)"></div>
+                <div style="text-align:center">
+                  <div style="font-family:'Poppins',sans-serif;font-size:1.75rem;font-weight:800;color:var(--accent,#F09000)">2</div>
+                  <div style="font-size:.78rem;opacity:.65;margin-top:.2rem">Expertises</div>
+                </div>
+                <div style="width:1px;background:rgba(255,255,255,.1)"></div>
+                <div style="text-align:center">
+                  <div style="font-family:'Poppins',sans-serif;font-size:1.75rem;font-weight:800;color:var(--accent,#F09000)">FR</div>
+                  <div style="font-size:.78rem;opacity:.65;margin-top:.2rem">Langue de travail</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.grid -->
+    </div>
+  </section>
+
+  <!-- ── SECTION 2 : Vision & Mission ───────────────────────────── -->
+  <section class="section bg-light" aria-labelledby="vm-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem">
+        <p class="section-label reveal">Vision &amp; mission</p>
+        <h2 class="section-title reveal reveal-delay-1" id="vm-title">Rendre la technologie accessible et utile</h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+        <p class="section-subtitle reveal reveal-delay-3" style="max-width:580px;margin:0 auto">
+          Deux boussoles qui guident chacune de nos décisions — de la première ligne de code à la mise en production.
+        </p>
+      </div>
+
+      <div class="grid grid-2" style="gap:2rem">
+
+        <!-- Vision -->
+        <div class="vm-card vm-card--blue reveal from-left reveal-delay-1">
+          <span class="vm-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg></span>
+          <p class="vm-card__label">Notre vision</p>
+          <h3 class="vm-card__title">Un partenaire de référence</h3>
+          <p>
+            Être le partenaire technologique de référence pour les entreprises qui souhaitent digitaliser leurs processus, moderniser leur système d'information ou développer des solutions logicielles sur mesure — en Tunisie et à l'international.
+          </p>
+        </div>
+
+        <!-- Mission -->
+        <div class="vm-card vm-card--orange reveal from-right reveal-delay-2">
+          <span class="vm-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+          <p class="vm-card__label" style="color:var(--accent,#F09000)">Notre mission</p>
+          <h3 class="vm-card__title">Concevoir des solutions utiles</h3>
+          <p>
+            Concevoir et livrer des solutions informatiques fiables, adaptées aux réalités métier de nos clients, en combinant notre expertise de développement et notre connaissance approfondie des processus de gestion d'entreprise.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3 : Nos valeurs ────────────────────────────────── -->
+  <section class="section bg-white" aria-labelledby="values-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem">
+        <p class="section-label reveal">Ce qui nous guide</p>
+        <h2 class="section-title reveal reveal-delay-1" id="values-title">Nos valeurs</h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+      </div>
+
+      <div class="grid grid-4" style="gap:1.5rem">
+
+        <article class="value-card reveal reveal-delay-1">
+          <span class="value-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" x2="9.17" y1="4.93" y2="9.17"/><line x1="14.83" x2="19.07" y1="14.83" y2="19.07"/><line x1="14.83" x2="19.07" y1="9.17" y2="4.93"/><line x1="4.93" x2="9.17" y1="19.07" y2="14.83"/></svg></span>
+          <h3 class="value-card__title">Engagement</h3>
+          <p>Nous nous impliquons pleinement dans chaque projet comme s'il était le nôtre, du cadrage à la livraison finale.</p>
+        </article>
+
+        <article class="value-card reveal reveal-delay-2">
+          <span class="value-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg></span>
+          <h3 class="value-card__title">Rigueur</h3>
+          <p>Chaque ligne de code, chaque fonctionnalité est conçue avec soin et précision pour garantir robustesse et fiabilité.</p>
+        </article>
+
+        <article class="value-card reveal reveal-delay-3">
+          <span class="value-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>
+          <h3 class="value-card__title">Innovation</h3>
+          <p>Nous restons en veille permanente pour proposer des approches modernes et efficaces, sans jamais sacrifier la stabilité.</p>
+        </article>
+
+        <article class="value-card reveal reveal-delay-4">
+          <span class="value-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3 class="value-card__title">Proximité</h3>
+          <p>Nous cultivons des relations durables avec nos clients, basées sur la confiance, la transparence et la communication.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4 : Double positionnement ─────────────────────── -->
+  <section class="section dual-section" aria-labelledby="dual-title">
+    <div class="container" style="position:relative;z-index:1">
+      <div style="text-align:center;margin-bottom:3rem">
+        <p class="section-label section-label--blue reveal">Deux métiers, une équipe</p>
+        <h2 class="section-title section-title--white reveal reveal-delay-1" id="dual-title">SSII et éditeur : deux expertises qui se renforcent</h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+        <p class="section-subtitle section-subtitle--white reveal reveal-delay-3" style="max-width:580px;margin:0 auto">
+          Notre double activité n'est pas un hasard : elle reflète notre volonté d'être un partenaire complet, capable d'adresser à la fois vos projets sur mesure et vos besoins en solutions packagées.
+        </p>
+      </div>
+
+      <div class="grid grid-2" style="gap:2rem">
+
+        <!-- SSII -->
+        <div class="dual-card reveal from-left reveal-delay-1">
+          <span class="dual-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+          <h3 class="dual-card__title">Services informatiques (SSII)</h3>
+          <p>
+            En tant que SSII, nous développons des applications sur mesure, externalisons des projets informatiques complets et renforçons les équipes techniques de nos clients. Cette activité nous maintient en contact constant avec les réalités technologiques du terrain et nous permet d'adopter les meilleures pratiques de l'industrie.
+          </p>
+        </div>
+
+        <!-- Éditeur -->
+        <div class="dual-card reveal from-right reveal-delay-2">
+          <span class="dual-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
+          <h3 class="dual-card__title">Éditeur de logiciels</h3>
+          <p>
+            En tant qu'éditeur, nous concevons nos propres produits : ERP Waves pour la gestion intégrée en mode web, SMP pour la gestion des fournisseurs, et ERP Polybe pour les applications desktop. Cette activité nous permet de maîtriser l'ensemble du cycle de vie logiciel et d'apporter une expertise fonctionnelle profonde à tous nos clients.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Synergy line -->
+      <div class="synergy-line reveal reveal-delay-3">
+        <span>Une synergie au service de nos clients</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 5 : Nos engagements ───────────────────────────── -->
+  <section class="section bg-light" aria-labelledby="commitments-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem">
+        <p class="section-label reveal">Nos engagements</p>
+        <h2 class="section-title reveal reveal-delay-1" id="commitments-title">Ce que vous pouvez attendre de nous</h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+        <p class="section-subtitle reveal reveal-delay-3" style="max-width:560px;margin:0 auto">
+          Des engagements concrets qui définissent notre manière de travailler avec chaque client, chaque jour.
+        </p>
+      </div>
+
+      <div class="grid grid-4" style="gap:1.5rem">
+
+        <article class="commitment-card reveal reveal-delay-1">
+          <span class="commitment-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+          <h3 class="commitment-card__title">Réactivité</h3>
+          <p>Réponse rapide à vos demandes, adaptation à vos priorités et capacité à mobiliser des ressources en cas d'urgence.</p>
+        </article>
+
+        <article class="commitment-card reveal reveal-delay-2">
+          <span class="commitment-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="18" x="5" y="4" rx="2"/><path d="M9 2h6v4H9z"/><path d="m9 14 2 2 4-4"/></svg></span>
+          <h3 class="commitment-card__title">Transparence</h3>
+          <p>Communication claire et honnête sur l'avancement du projet, les difficultés rencontrées et les décisions prises.</p>
+        </article>
+
+        <article class="commitment-card reveal reveal-delay-3">
+          <span class="commitment-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <h3 class="commitment-card__title">Fiabilité</h3>
+          <p>Respect des engagements pris, qualité irréprochable du code livré et robustesse garantie des livrables en production.</p>
+        </article>
+
+        <article class="commitment-card reveal reveal-delay-4">
+          <span class="commitment-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg></span>
+          <h3 class="commitment-card__title">Évolutivité</h3>
+          <p>Des solutions pensées dès la conception pour évoluer avec votre entreprise, sans refonte coûteuse à chaque changement.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6 : CTA ────────────────────────────────────────── -->
+  <section class="section cta-section" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 class="section-title reveal" id="cta-title" style="color:#fff;margin-bottom:1rem">Travaillons ensemble</h2>
+      <div class="section-divider reveal reveal-delay-1" style="margin:1rem auto 1.5rem"></div>
+      <p class="reveal reveal-delay-2">
+        Vous cherchez un partenaire fiable pour votre prochain projet informatique ? Nous serions ravis d'échanger avec vous et d'explorer comment nous pouvons vous accompagner.
+      </p>
+      <div class="btn-group flex-center reveal reveal-delay-3">
+        <a href="contact.html" class="btn btn--outline-white btn--lg">
+          Contactez-nous
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="solutions.html" class="btn btn--accent btn--lg">Nos solutions</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand__logo">
+          <img src="assets/logos/logo-etalent.png" alt="e-talent" width="130" height="40">
+        </div>
+        <p class="footer-brand__desc">
+          Société tunisienne de services informatiques et éditeur de logiciels, basée à Sousse.
+          Nous accompagnons les entreprises dans leur transformation digitale.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col__title">Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Accueil</a></li>
+          <li><a href="services.html" class="footer-link">Nos services</a></li>
+          <li><a href="solutions.html" class="footer-link">Nos solutions</a></li>
+          <li><a href="about.html" class="footer-link">À propos</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col__title">Nos solutions</h3>
+        <ul class="footer-links">
+          <li><a href="erp-waves.html" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg> ERP Waves</a></li>
+          <li><a href="smp.html" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg> Supplier Management Platform</a></li>
+          <li><a href="polybe.html" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> ERP Polybe Desktop</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col__title">Contact</h3>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+          <div><a href="mailto:contact@etalent.tn">contact@etalent.tn</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
+          <div><a href="tel:+21654728192">+216 54 728 192</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>Rue de la Victoire, Chatt Mariem,<br>Sousse, Tunisie</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+          <div><a href="https://etalent.tn" target="_blank" rel="noopener">etalent.tn</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 e-talent. Tous droits réservés.</p>
+      <nav class="footer-legal" aria-label="Liens légaux">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/21654728192" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contacter par WhatsApp">
+  <div class="whatsapp-btn__pulse"></div>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<div class="nav-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- Scripts -->
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

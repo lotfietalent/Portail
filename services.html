@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services informatiques — Développement &amp; Externalisation | e-talent</title>
+  <meta name="description" content="e-talent propose des services de développement logiciel sur mesure, d'externalisation informatique et de renforcement d'équipes pour les entreprises en Tunisie et en Europe.">
+  <link rel="canonical" href="https://etalent.tn/services.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Services informatiques — Développement &amp; Externalisation | e-talent">
+  <meta property="og:description" content="e-talent propose des services de développement logiciel sur mesure, d'externalisation informatique et de renforcement d'équipes pour les entreprises en Tunisie et en Europe.">
+  <meta property="og:url" content="https://etalent.tn/services.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://etalent.tn/assets/logos/logo-etalent.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logos/logo-symbol.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* ── Page-specific styles ─────────────────────────────────── */
+
+    /* Glow card */
+    .glow-card {
+      transition: box-shadow .3s, transform .3s;
+    }
+    .glow-card:hover {
+      box-shadow: 0 8px 40px rgba(0,80,176,.15);
+      transform: translateY(-4px);
+    }
+
+    /* Feature list inside cards */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .875rem;
+      color: var(--text-muted, #6b7280);
+      padding: .25rem 0;
+    }
+    .feature-list li::before {
+      content: "✓";
+      color: var(--primary, #0050B0);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── Offshore section ──────────────────────────────────────── */
+    .offshore-visual {
+      background: var(--navy, #071B35);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .offshore-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(240,144,0,.12) 0%, transparent 60%);
+    }
+    .editor-mockup {
+      background: #0d1b2e;
+      border-radius: .75rem;
+      padding: 1.25rem;
+      font-family: 'Courier New', monospace;
+      font-size: .78rem;
+      line-height: 1.8;
+      border: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 1.5rem;
+    }
+    .editor-bar {
+      display: flex;
+      gap: .4rem;
+      margin-bottom: 1rem;
+    }
+    .editor-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .editor-dot--red   { background: #ff5f57; }
+    .editor-dot--yellow{ background: #ffbd2e; }
+    .editor-dot--green { background: #28c840; }
+    .code-line { display: block; }
+    .c-kw  { color: #c792ea; }
+    .c-fn  { color: #82aaff; }
+    .c-str { color: #c3e88d; }
+    .c-cmt { color: #546e7a; }
+    .c-num { color: #f78c6c; }
+    .c-var { color: #eeffff; }
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .project-info__title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: .25rem;
+    }
+    .progress-item {
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .75rem;
+      opacity: .8;
+    }
+    .progress-bar {
+      height: 6px;
+      background: rgba(255,255,255,.12);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-bar__fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--primary,#0050B0), var(--accent,#F09000));
+    }
+    .team-avatars {
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      margin-top: .5rem;
+    }
+    .avatar-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .avatar-circle:nth-child(1){ background: #0050B0; }
+    .avatar-circle:nth-child(2){ background: #F09000; }
+    .avatar-circle:nth-child(3){ background: #198754; }
+    .avatar-circle:nth-child(4){ background: #6f42c1; }
+    .avatar-more {
+      font-size: .7rem;
+      opacity: .7;
+      margin-left: .25rem;
+    }
+
+    /* ── Timeline ───────────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      max-width: 760px;
+      margin: 3rem auto 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary,#0050B0), var(--accent,#F09000));
+    }
+    .timeline-item {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-num {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--primary,#0050B0);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 4px 16px rgba(0,80,176,.3);
+    }
+    .timeline-num--accent {
+      background: var(--accent,#F09000);
+      box-shadow: 0 4px 16px rgba(240,144,0,.3);
+    }
+    .timeline-body {
+      padding-top: .75rem;
+      flex: 1;
+    }
+    .timeline-body h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy,#071B35);
+      margin-bottom: .4rem;
+    }
+    .timeline-body p {
+      font-size: .9375rem;
+      color: var(--text-muted,#6b7280);
+      line-height: 1.65;
+    }
+
+    /* ── Tech cards ──────────────────────────────────────────────── */
+    .tech-card {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,.07);
+      transition: box-shadow .3s, transform .3s;
+    }
+    .tech-card:hover {
+      box-shadow: 0 8px 32px rgba(0,80,176,.12);
+      transform: translateY(-3px);
+    }
+    .tech-card__icon {
+      font-size: 2.25rem;
+      margin-bottom: .75rem;
+    }
+    .tech-card__title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--navy,#071B35);
+      margin-bottom: .75rem;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      justify-content: center;
+    }
+    .tech-tag {
+      display: inline-block;
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 500;
+      background: rgba(0,80,176,.08);
+      color: var(--primary,#0050B0);
+      border: 1px solid rgba(0,80,176,.12);
+    }
+
+    /* ── Quote form section ──────────────────────────────────────── */
+    .quote-section {
+      background: var(--navy,#071B35);
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(0,80,176,.25) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(240,144,0,.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .quote-form-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      position: relative;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .form-label {
+      font-size: .875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.85);
+    }
+    .form-label .required {
+      color: var(--accent,#F09000);
+      margin-left: 2px;
+    }
+    .form-control {
+      width: 100%;
+      padding: .75rem 1rem;
+      border-radius: .625rem;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.07);
+      color: #fff;
+      font-size: .9375rem;
+      font-family: inherit;
+      transition: border-color .2s, background .2s;
+      box-sizing: border-box;
+    }
+    .form-control::placeholder { color: rgba(255,255,255,.35); }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary,#0050B0);
+      background: rgba(255,255,255,.1);
+    }
+    .form-control.error { border-color: #ef4444; }
+    select.form-control option { background: var(--navy,#071B35); color: #fff; }
+    textarea.form-control { resize: vertical; min-height: 120px; }
+    .form-error {
+      font-size: .78rem;
+      color: #f87171;
+      display: none;
+    }
+    .form-error.visible { display: block; }
+
+    .contact-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.9);
+      font-size: .875rem;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .contact-badge:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.4);
+    }
+    .contact-badge span { font-size: 1.1rem; }
+
+    /* ── Responsive adjustments ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      .form-row { grid-template-columns: 1fr; }
+      .quote-form-wrapper { padding: 2rem 1.25rem; }
+      .timeline::before { left: 20px; }
+      .timeline-num { width: 40px; height: 40px; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════ -->
+<header class="site-header site-header--transparent" role="banner">
+  <div class="container">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-logo" aria-label="e-talent — Accueil">
+        <img src="assets/logos/logo-etalent.png" alt="e-talent" width="140" height="44">
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="services.html" class="nav-link active" aria-current="page">Nos services</a>
+        <div class="nav-dropdown">
+          <a href="solutions.html" class="nav-link" aria-haspopup="true">
+            Nos solutions <svg style="display:inline;margin-left:2px;vertical-align:middle" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown__menu">
+            <a href="erp-waves.html" class="nav-dropdown__item">
+              <span class="nav-dropdown__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span>
+              <span>ERP Waves</span>
+            </a>
+            <a href="smp.html" class="nav-dropdown__item">
+              <span class="nav-dropdown__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg></span>
+              <span>Supplier Management Platform</span>
+            </a>
+            <a href="polybe.html" class="nav-dropdown__item">
+              <span class="nav-dropdown__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></span>
+              <span>ERP Polybe</span>
+            </a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link">À propos</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn--accent btn--sm">Parlons de votre projet</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" aria-hidden="true" aria-label="Navigation mobile">
+  <div class="mobile-nav__links">
+    <a href="index.html" class="mobile-nav__link">Accueil</a>
+    <a href="services.html" class="mobile-nav__link active">Nos services</a>
+    <a href="solutions.html" class="mobile-nav__link" data-toggle="mobile-solutions">
+      Nos solutions
+      <svg class="chevron" style="transition:transform .3s" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+    <div id="mobile-solutions" class="mobile-nav__sub" style="display:none">
+      <a href="erp-waves.html" class="mobile-nav__sub-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg> ERP Waves</a>
+      <a href="smp.html" class="mobile-nav__sub-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg> Supplier Management Platform</a>
+      <a href="polybe.html" class="mobile-nav__sub-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> ERP Polybe</a>
+    </div>
+    <a href="about.html" class="mobile-nav__link">À propos</a>
+    <a href="contact.html" class="mobile-nav__link">Contact</a>
+  </div>
+  <div style="margin-top:auto;padding-top:2rem">
+    <a href="contact.html" class="btn btn--accent" style="width:100%;justify-content:center">Parlons de votre projet</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- ── PAGE HERO ───────────────────────────────────────────────── -->
+  <section class="page-hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="page-hero__content">
+        <nav class="page-hero__breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          <span aria-current="page">Nos services</span>
+        </nav>
+        <p class="section-label section-label--blue reveal">SSII — Société de Services Informatiques</p>
+        <h1 class="page-hero__title reveal reveal-delay-1" id="hero-title">
+          Des services informatiques <span class="accent">sur mesure</span> pour votre transformation digitale
+        </h1>
+        <p class="page-hero__subtitle reveal reveal-delay-2">
+          e-talent accompagne les entreprises dans la conception, le développement et l'évolution de leurs systèmes d'information.
+        </p>
+        <div class="btn-group reveal reveal-delay-3">
+          <a href="#quote-form" class="btn btn--outline-white btn--lg">Demander un devis</a>
+          <a href="contact.html" class="btn btn--accent btn--lg">Contactez-nous</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 1 : Nos prestations ────────────────────────────── -->
+  <section class="section bg-white" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-header" style="text-align:center;margin-bottom:3rem">
+        <p class="section-label reveal">Ce que nous faisons</p>
+        <h2 class="section-title reveal reveal-delay-1" id="services-title">Nos domaines d'intervention</h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+      </div>
+
+      <div class="grid grid-3">
+
+        <!-- Card 1 -->
+        <article class="card glow-card reveal from-left reveal-delay-1">
+          <div class="card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3 class="card__title">Développement web sur mesure</h3>
+          <p class="card__body">Applications web professionnelles, interfaces métier, portails et plateformes SaaS. Technologies modernes, code maintenable et évolutif.</p>
+          <ul class="feature-list" aria-label="Inclus">
+            <li>Applications métier web</li>
+            <li>Interfaces d'administration</li>
+            <li>Portails clients &amp; fournisseurs</li>
+            <li>Intégration d'APIs tierces</li>
+          </ul>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card glow-card reveal reveal-delay-2">
+          <div class="card__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
+          <h3 class="card__title">Développement desktop</h3>
+          <p class="card__body">Applications Windows robustes pour les environnements professionnels nécessitant des performances élevées, un accès hors-ligne ou une intégration matérielle.</p>
+          <ul class="feature-list" aria-label="Inclus">
+            <li>Applications Windows professionnelles</li>
+            <li>Logiciels de caisse &amp; gestion</li>
+            <li>Interfaces matérielles</li>
+            <li>Migration d'applications legacy</li>
+          </ul>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card glow-card reveal from-right reveal-delay-3">
+          <div class="card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg></div>
+          <h3 class="card__title">Externalisation &amp; sous-traitance</h3>
+          <p class="card__body">Confiez vos projets informatiques à une équipe expérimentée. Idéal pour les sociétés européennes cherchant un partenaire offshore de confiance en Tunisie.</p>
+          <ul class="feature-list" aria-label="Inclus">
+            <li>Projets clés en main</li>
+            <li>Sous-traitance partielle</li>
+            <li>Collaboration agile à distance</li>
+            <li>Documentation complète</li>
+          </ul>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card glow-card reveal from-left reveal-delay-1">
+          <div class="card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 class="card__title">Renforcement d'équipes</h3>
+          <p class="card__body">Intégration de développeurs qualifiés dans vos équipes pour accélérer vos projets, combler un pic d'activité ou apporter des compétences spécifiques.</p>
+          <ul class="feature-list" aria-label="Inclus">
+            <li>Développeurs seniors &amp; juniors</li>
+            <li>Intégration aux process clients</li>
+            <li>Flexibilité et réactivité</li>
+            <li>Profils web &amp; desktop</li>
+          </ul>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="card glow-card reveal reveal-delay-2">
+          <div class="card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <h3 class="card__title">Modernisation d'applications</h3>
+          <p class="card__body">Évoluez sans repartir de zéro. Nous reprenons, améliorons et modernisons vos applications existantes pour les rendre plus performantes et maintenables.</p>
+          <ul class="feature-list" aria-label="Inclus">
+            <li>Audit de code existant</li>
+            <li>Refactoring &amp; optimisation</li>
+            <li>Migration technologique</li>
+            <li>Ajout de nouvelles fonctionnalités</li>
+          </ul>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="card glow-card reveal from-right reveal-delay-3">
+          <div class="card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          <h3 class="card__title">Digitalisation des processus</h3>
+          <p class="card__body">Transformation numérique de vos workflows métier. Identification des processus manuels, conception de solutions adaptées et déploiement progressif.</p>
+          <ul class="feature-list" aria-label="Inclus">
+            <li>Audit processus métier</li>
+            <li>Conception de flux numériques</li>
+            <li>Automatisation</li>
+            <li>Tableaux de bord de suivi</li>
+          </ul>
+        </article>
+
+      </div><!-- /.grid -->
+    </div>
+  </section>
+
+  <!-- ── SECTION 2 : Approche offshore ──────────────────────────── -->
+  <section class="section bg-light" aria-labelledby="offshore-title">
+    <div class="container">
+      <div class="grid grid-2" style="gap:3.5rem;align-items:center">
+
+        <!-- Left text -->
+        <div class="reveal from-left">
+          <p class="section-label">Partenaire offshore</p>
+          <h2 class="section-title" id="offshore-title">Un partenaire tunisien de confiance pour vos projets européens</h2>
+          <p style="font-size:1rem;line-height:1.75;color:var(--text-muted,#6b7280);margin-bottom:1.75rem">
+            Basée à Sousse en Tunisie, e-talent est idéalement positionnée pour accompagner les entreprises françaises, belges, suisses et européennes dans leurs projets informatiques. Notre équipe maîtrise les exigences de qualité, les méthodes agiles et les standards de développement reconnus en Europe.
+          </p>
+          <div class="feature-item reveal reveal-delay-1">
+            <span style="color:var(--primary);font-size:1.1rem" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Communication en français, suivi régulier et transparence totale</span>
+          </div>
+          <div class="feature-item reveal reveal-delay-2">
+            <span style="color:var(--primary);font-size:1.1rem" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Fuseau horaire compatible (UTC+1) — collaboration synchrone possible</span>
+          </div>
+          <div class="feature-item reveal reveal-delay-3">
+            <span style="color:var(--primary);font-size:1.1rem" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Tarifs compétitifs sans compromis sur la qualité</span>
+          </div>
+        </div>
+
+        <!-- Right visual -->
+        <div class="reveal from-right">
+          <div class="offshore-visual">
+            <!-- Code editor mockup -->
+            <div class="editor-mockup">
+              <div class="editor-bar">
+                <div class="editor-dot editor-dot--red"></div>
+                <div class="editor-dot editor-dot--yellow"></div>
+                <div class="editor-dot editor-dot--green"></div>
+                <span style="margin-left:.5rem;font-size:.7rem;color:rgba(255,255,255,.4)">projet-client.js</span>
+              </div>
+              <code>
+                <span class="code-line"><span class="c-kw">const</span> <span class="c-var">projet</span> = {</span>
+                <span class="code-line">  <span class="c-fn">client</span>: <span class="c-str">"Entreprise EU"</span>,</span>
+                <span class="code-line">  <span class="c-fn">tech</span>: [<span class="c-str">"React"</span>, <span class="c-str">".NET"</span>],</span>
+                <span class="code-line">  <span class="c-fn">sprint</span>: <span class="c-num">3</span>,</span>
+                <span class="code-line">  <span class="c-fn">status</span>: <span class="c-str">"En cours ✓"</span></span>
+                <span class="code-line">};</span>
+                <span class="code-line">&nbsp;</span>
+                <span class="code-line"><span class="c-cmt">// Livraison sprint 3 — vendredi</span></span>
+                <span class="code-line"><span class="c-fn">deploy</span>(<span class="c-var">projet</span>).<span class="c-fn">then</span>(() =&gt; {</span>
+                <span class="code-line">  <span class="c-fn">notify</span>(<span class="c-str">"Client informé"</span>);</span>
+                <span class="code-line">});</span>
+              </code>
+            </div>
+
+            <!-- Project info -->
+            <div class="project-info">
+              <p class="project-info__title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Projet en cours</p>
+              <div class="progress-item">
+                <div class="progress-label"><span>Développement back-end</span><span>78%</span></div>
+                <div class="progress-bar"><div class="progress-bar__fill" style="width:78%"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Interface utilisateur</span><span>62%</span></div>
+                <div class="progress-bar"><div class="progress-bar__fill" style="width:62%"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Tests &amp; validation</span><span>35%</span></div>
+                <div class="progress-bar"><div class="progress-bar__fill" style="width:35%"></div></div>
+              </div>
+              <div>
+                <p style="font-size:.8rem;opacity:.6;margin-bottom:.4rem">Équipe assignée</p>
+                <div class="team-avatars">
+                  <div class="avatar-circle" aria-hidden="true">AS</div>
+                  <div class="avatar-circle" aria-hidden="true">MK</div>
+                  <div class="avatar-circle" aria-hidden="true">NB</div>
+                  <div class="avatar-circle" aria-hidden="true">YT</div>
+                  <span class="avatar-more">+2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.grid -->
+    </div>
+  </section>
+
+  <!-- ── SECTION 3 : Processus de collaboration ──────────────────── -->
+  <section class="section bg-white" aria-labelledby="process-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem">
+        <p class="section-label reveal">Comment ça marche</p>
+        <h2 class="section-title reveal reveal-delay-1" id="process-title">Notre processus de collaboration</h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+        <p class="section-subtitle reveal reveal-delay-3" style="max-width:580px;margin:0 auto">
+          Un processus structuré et transparent, pensé pour maximiser la valeur livrée à chaque étape.
+        </p>
+      </div>
+
+      <div class="timeline" role="list">
+
+        <div class="timeline-item reveal from-right reveal-delay-1" role="listitem">
+          <div class="timeline-num" aria-hidden="true">1</div>
+          <div class="timeline-body">
+            <h3>Prise de contact</h3>
+            <p>Échangez avec notre équipe pour décrire votre projet et vos objectifs. Première réponse garantie sous 24h ouvrées.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal from-right reveal-delay-2" role="listitem">
+          <div class="timeline-num" aria-hidden="true">2</div>
+          <div class="timeline-body">
+            <h3>Analyse &amp; cadrage</h3>
+            <p>Étude de faisabilité approfondie, définition du périmètre fonctionnel et proposition technique adaptée à votre budget et vos contraintes.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal from-right reveal-delay-3" role="listitem">
+          <div class="timeline-num" aria-hidden="true">3</div>
+          <div class="timeline-body">
+            <h3>Démarrage du projet</h3>
+            <p>Constitution de l'équipe dédiée, mise en place des outils de collaboration (Jira, Slack, Git…) et lancement du développement itératif.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal from-right reveal-delay-4" role="listitem">
+          <div class="timeline-num timeline-num--accent" aria-hidden="true">4</div>
+          <div class="timeline-body">
+            <h3>Suivi &amp; itérations</h3>
+            <p>Points réguliers, démonstrations de fonctionnalités à chaque sprint et ajustements continus selon vos retours pour garantir l'alignement avec vos besoins.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal from-right reveal-delay-5" role="listitem">
+          <div class="timeline-num timeline-num--accent" aria-hidden="true">5</div>
+          <div class="timeline-body">
+            <h3>Livraison &amp; accompagnement</h3>
+            <p>Déploiement en production, documentation complète et support post-livraison pour assurer une prise en main sereine par vos équipes.</p>
+          </div>
+        </div>
+
+      </div><!-- /.timeline -->
+    </div>
+  </section>
+
+  <!-- ── SECTION 4 : Technologies ───────────────────────────────── -->
+  <section class="section bg-light" aria-labelledby="tech-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem">
+        <p class="section-label reveal">Stack technique</p>
+        <h2 class="section-title reveal reveal-delay-1" id="tech-title">Nos technologies de prédilection</h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+        <p class="section-subtitle reveal reveal-delay-3" style="max-width:560px;margin:0 auto">
+          Nous travaillons avec les technologies les plus adaptées à vos besoins, sans dogmatisme.
+        </p>
+      </div>
+
+      <div class="grid grid-4" style="gap:1.5rem">
+
+        <div class="tech-card reveal reveal-delay-1">
+          <div class="tech-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+          <h3 class="tech-card__title">Frontend Web</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">HTML5 / CSS3</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Vue.js</span>
+            <span class="tech-tag">Angular</span>
+          </div>
+        </div>
+
+        <div class="tech-card reveal reveal-delay-2">
+          <div class="tech-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          <h3 class="tech-card__title">Backend &amp; API</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">.NET / C#</span>
+            <span class="tech-tag">REST</span>
+            <span class="tech-tag">GraphQL</span>
+          </div>
+        </div>
+
+        <div class="tech-card reveal reveal-delay-3">
+          <div class="tech-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
+          <h3 class="tech-card__title">Desktop</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">.NET / WinForms</span>
+            <span class="tech-tag">Delphi</span>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">WPF</span>
+            <span class="tech-tag">Windows natif</span>
+          </div>
+        </div>
+
+        <div class="tech-card reveal reveal-delay-4">
+          <div class="tech-card__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <h3 class="tech-card__title">Bases de données</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">SQL Server</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Oracle</span>
+            <span class="tech-tag">SQLite</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5 : Formulaire de devis ───────────────────────── -->
+  <section class="section quote-section" id="quote-form" aria-labelledby="quote-title">
+    <div class="container" style="position:relative;z-index:1">
+      <div style="text-align:center;margin-bottom:3rem">
+        <p class="section-label section-label--blue reveal">Démarrer un projet</p>
+        <h2 class="section-title section-title--white reveal reveal-delay-1" id="quote-title">Décrivez-nous votre projet</h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+        <p class="section-subtitle section-subtitle--white reveal reveal-delay-3" style="max-width:520px;margin:0 auto">
+          Remplissez ce formulaire et notre équipe vous répondra dans les 24 heures.
+        </p>
+      </div>
+
+      <div class="quote-form-wrapper reveal">
+        <form
+          id="devis-form"
+          name="devis"
+          method="POST"
+          action="#"
+          novalidate
+          aria-label="Formulaire de demande de devis"
+        >
+          <!-- Prénom + Nom -->
+          <div class="form-row" style="margin-bottom:1.25rem">
+            <div class="form-group">
+              <label class="form-label" for="prenom">Prénom <span class="required" aria-hidden="true">*</span></label>
+              <input
+                class="form-control"
+                type="text"
+                id="prenom"
+                name="prenom"
+                placeholder="Votre prénom"
+                autocomplete="given-name"
+                required
+                aria-required="true"
+                aria-describedby="prenom-error"
+              >
+              <span class="form-error" id="prenom-error" role="alert" data-error="prenom">Ce champ est requis.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nom">Nom <span class="required" aria-hidden="true">*</span></label>
+              <input
+                class="form-control"
+                type="text"
+                id="nom"
+                name="nom"
+                placeholder="Votre nom"
+                autocomplete="family-name"
+                required
+                aria-required="true"
+                aria-describedby="nom-error"
+              >
+              <span class="form-error" id="nom-error" role="alert" data-error="nom">Ce champ est requis.</span>
+            </div>
+          </div>
+
+          <!-- Email + Téléphone -->
+          <div class="form-row" style="margin-bottom:1.25rem">
+            <div class="form-group">
+              <label class="form-label" for="email">Email <span class="required" aria-hidden="true">*</span></label>
+              <input
+                class="form-control"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="vous@exemple.com"
+                autocomplete="email"
+                required
+                aria-required="true"
+                aria-describedby="email-error"
+              >
+              <span class="form-error" id="email-error" role="alert" data-error="email">Veuillez saisir un email valide.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="telephone">Téléphone</label>
+              <input
+                class="form-control"
+                type="tel"
+                id="telephone"
+                name="telephone"
+                placeholder="+33 6 00 00 00 00"
+                autocomplete="tel"
+              >
+            </div>
+          </div>
+
+          <!-- Entreprise -->
+          <div class="form-group" style="margin-bottom:1.25rem">
+            <label class="form-label" for="entreprise">Société / Entreprise</label>
+            <input
+              class="form-control"
+              type="text"
+              id="entreprise"
+              name="entreprise"
+              placeholder="Nom de votre entreprise"
+              autocomplete="organization"
+            >
+          </div>
+
+          <!-- Objet -->
+          <div class="form-group" style="margin-bottom:1.25rem">
+            <label class="form-label" for="objet">Type de prestation <span class="required" aria-hidden="true">*</span></label>
+            <select
+              class="form-control"
+              id="objet"
+              name="objet"
+              required
+              aria-required="true"
+              aria-describedby="objet-error"
+            >
+              <option value="" disabled selected>Sélectionnez une prestation…</option>
+              <option value="dev-web">Développement web sur mesure</option>
+              <option value="dev-desktop">Développement desktop</option>
+              <option value="externalisation">Externalisation de projet</option>
+              <option value="renforcement">Renforcement d'équipe</option>
+              <option value="modernisation">Modernisation d'application</option>
+              <option value="digitalisation">Digitalisation des processus</option>
+              <option value="autre">Autre</option>
+            </select>
+            <span class="form-error" id="objet-error" role="alert" data-error="objet">Veuillez sélectionner une option.</span>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group" style="margin-bottom:1.75rem">
+            <label class="form-label" for="message">Décrivez votre besoin <span class="required" aria-hidden="true">*</span></label>
+            <textarea
+              class="form-control"
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Décrivez votre besoin, les fonctionnalités souhaitées, votre calendrier estimé…"
+              required
+              aria-required="true"
+              aria-describedby="message-error"
+            ></textarea>
+            <span class="form-error" id="message-error" role="alert" data-error="message">Veuillez décrire votre besoin.</span>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn--accent btn--lg" style="width:100%;justify-content:center">
+            Envoyer ma demande
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+
+        <!-- Contacts directs -->
+        <div style="text-align:center;margin-top:2rem">
+          <p style="color:rgba(255,255,255,.55);font-size:.875rem;margin-bottom:1rem">Ou contactez-nous directement :</p>
+          <div class="contact-badges">
+            <a href="tel:+21654728192" class="contact-badge">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:-2px;"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></span> +216 54 728 192
+            </a>
+            <a href="mailto:contact@etalent.tn" class="contact-badge">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:-2px;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span> contact@etalent.tn
+            </a>
+          </div>
+        </div>
+      </div><!-- /.quote-form-wrapper -->
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand__logo">
+          <img src="assets/logos/logo-etalent.png" alt="e-talent" width="130" height="40">
+        </div>
+        <p class="footer-brand__desc">
+          Société tunisienne de services informatiques et éditeur de logiciels, basée à Sousse.
+          Nous accompagnons les entreprises dans leur transformation digitale.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col__title">Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Accueil</a></li>
+          <li><a href="services.html" class="footer-link">Nos services</a></li>
+          <li><a href="solutions.html" class="footer-link">Nos solutions</a></li>
+          <li><a href="about.html" class="footer-link">À propos</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col__title">Nos solutions</h3>
+        <ul class="footer-links">
+          <li><a href="erp-waves.html" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg> ERP Waves</a></li>
+          <li><a href="smp.html" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg> Supplier Management Platform</a></li>
+          <li><a href="polybe.html" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> ERP Polybe Desktop</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col__title">Contact</h3>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+          <div><a href="mailto:contact@etalent.tn">contact@etalent.tn</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
+          <div><a href="tel:+21654728192">+216 54 728 192</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>Rue de la Victoire, Chatt Mariem,<br>Sousse, Tunisie</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+          <div><a href="https://etalent.tn" target="_blank" rel="noopener">etalent.tn</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 e-talent. Tous droits réservés.</p>
+      <nav class="footer-legal" aria-label="Liens légaux">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/21654728192" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contacter par WhatsApp">
+  <div class="whatsapp-btn__pulse"></div>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<div class="nav-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- Scripts -->
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Quote form inline validation -->
+<script>
+(function () {
+  'use strict';
+
+  const form = document.getElementById('devis-form');
+  if (!form) return;
+
+  const fields = {
+    prenom:  { el: form.querySelector('#prenom'),  errorEl: form.querySelector('#prenom-error'),  validate: v => v.trim().length > 0,          msg: 'Ce champ est requis.' },
+    nom:     { el: form.querySelector('#nom'),     errorEl: form.querySelector('#nom-error'),     validate: v => v.trim().length > 0,          msg: 'Ce champ est requis.' },
+    email:   { el: form.querySelector('#email'),   errorEl: form.querySelector('#email-error'),   validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), msg: 'Veuillez saisir un email valide.' },
+    objet:   { el: form.querySelector('#objet'),   errorEl: form.querySelector('#objet-error'),   validate: v => v !== '',                     msg: 'Veuillez sélectionner une option.' },
+    message: { el: form.querySelector('#message'), errorEl: form.querySelector('#message-error'), validate: v => v.trim().length >= 10,        msg: 'Veuillez décrire votre besoin (10 caractères min).' }
+  };
+
+  function showError(field, msg) {
+    field.el.classList.add('error');
+    field.errorEl.textContent = msg;
+    field.errorEl.classList.add('visible');
+  }
+
+  function clearError(field) {
+    field.el.classList.remove('error');
+    field.errorEl.classList.remove('visible');
+  }
+
+  // Live validation on blur
+  Object.values(fields).forEach(function (field) {
+    field.el.addEventListener('blur', function () {
+      if (!field.validate(field.el.value)) {
+        showError(field, field.msg);
+      } else {
+        clearError(field);
+      }
+    });
+    field.el.addEventListener('input', function () {
+      if (field.el.classList.contains('error') && field.validate(field.el.value)) {
+        clearError(field);
+      }
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    let valid = true;
+
+    Object.values(fields).forEach(function (field) {
+      if (!field.validate(field.el.value)) {
+        showError(field, field.msg);
+        valid = false;
+      } else {
+        clearError(field);
+      }
+    });
+
+    if (!valid) {
+      // Scroll to first error
+      const firstError = form.querySelector('.error');
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Success feedback
+    const btn = form.querySelector('[type="submit"]');
+    btn.textContent = '✓ Demande envoyée !';
+    btn.disabled = true;
+    btn.style.background = '#198754';
+    // In production, replace with actual fetch/AJAX call
+  });
+})();
+</script>
+
+</body>
+</html>
